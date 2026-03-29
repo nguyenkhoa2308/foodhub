@@ -1,0 +1,102 @@
+@import "tailwindcss";
+
+:root {
+  /* === LIGHT THEME (Từ bộ màu JSON của bạn) === */
+  --primary: #ab3500;
+  --on-primary: #ffffff;
+  --primary-container: #ff6b35;
+  --on-primary-container: #5f1900;
+  
+  --secondary: #5d5c74;
+  --on-secondary: #ffffff;
+  --secondary-container: #e2e0fc;
+  --on-secondary-container: #63627a;
+  
+  --surface: #f8f9fa;
+  --on-surface: #191c1d;
+  --surface-variant: #e1e3e4;
+  --on-surface-variant: #594139;
+  
+  --surface-container-lowest: #ffffff;
+  --surface-container-low: #f3f4f5;
+  --surface-container: #edeeef;
+  --surface-container-high: #e7e8e9;
+  --surface-container-highest: #e1e3e4;
+
+  --outline: #8d7168;
+  --outline-variant: #e1bfb5;
+  
+  --background: #f8f9fa;
+  --foreground: #1a1a2e; /* Charcoal chữ chuẩn Digital Maître d’ */
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* === DARK THEME (Mã màu đảo ngược tiêu chuẩn của Material 3) === */
+    --primary: #ffb59d;
+    --on-primary: #5c1900;
+    --primary-container: #832600;
+    --on-primary-container: #ffdbd0;
+    
+    --secondary: #c6c4df;
+    --on-secondary: #2f2e43;
+    --secondary-container: #45455b;
+    --on-secondary-container: #e2e0fc;
+    
+    --surface: #121212;
+    --on-surface: #e1e3e4;
+    --surface-variant: #49454f;
+    --on-surface-variant: #cac4d0;
+    
+    --surface-container-lowest: #000000;
+    --surface-container-low: #1a1a1a;
+    --surface-container: #1d1d1d;
+    --surface-container-high: #282828;
+    --surface-container-highest: #333333;
+
+    --outline: #a08c87;
+    --outline-variant: #53433f;
+    
+    --background: #121212;
+    --foreground: #e1e3e4;
+  }
+}
+
+@theme inline {
+  /* Ánh xạ biến màu CSS vào biến của Tailwind v4 */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  --color-primary: var(--primary);
+  --color-on-primary: var(--on-primary);
+  --color-primary-container: var(--primary-container);
+  
+  --color-secondary: var(--secondary);
+  --color-on-secondary: var(--on-secondary);
+  --color-secondary-container: var(--secondary-container);
+  
+  --color-surface: var(--surface);
+  --color-on-surface: var(--on-surface);
+  --color-surface-variant: var(--surface-variant);
+  
+  --color-surface-lowest: var(--surface-container-lowest);
+  --color-surface-low: var(--surface-container-low);
+  --color-surface-container: var(--surface-container);
+  --color-surface-high: var(--surface-container-high);
+  --color-surface-highest: var(--surface-container-highest);
+  
+  --color-outline: var(--outline);
+  --color-outline-variant: var(--outline-variant);
+
+  /* Typography */
+  --font-inter: "Inter", sans-serif;
+  --font-sans: var(--font-inter);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans);
+  line-height: 1.6;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
