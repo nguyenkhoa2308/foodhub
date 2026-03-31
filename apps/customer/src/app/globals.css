@@ -1,102 +1,189 @@
 @import "tailwindcss";
 
 :root {
-  /* === LIGHT THEME (Từ bộ màu JSON của bạn) === */
+  /* PRIMARY */
   --primary: #ab3500;
   --on-primary: #ffffff;
   --primary-container: #ff6b35;
   --on-primary-container: #5f1900;
-  
+
+  /* SECONDARY */
   --secondary: #5d5c74;
   --on-secondary: #ffffff;
   --secondary-container: #e2e0fc;
   --on-secondary-container: #63627a;
-  
+
+  /* TERTIARY */
+  --tertiary: #00677e;
+  --on-tertiary: #ffffff;
+  --tertiary-container: #00a7cb;
+  --on-tertiary-container: #003744;
+
+  /* SURFACE */
+  --background: #f8f9fa;
   --surface: #f8f9fa;
-  --on-surface: #191c1d;
   --surface-variant: #e1e3e4;
-  --on-surface-variant: #594139;
-  
+
   --surface-container-lowest: #ffffff;
   --surface-container-low: #f3f4f5;
   --surface-container: #edeeef;
   --surface-container-high: #e7e8e9;
   --surface-container-highest: #e1e3e4;
 
+  --on-surface: #191c1d;
+  --on-surface-variant: #594139;
+
+  /* OUTLINE */
   --outline: #8d7168;
   --outline-variant: #e1bfb5;
-  
-  --background: #f8f9fa;
-  --foreground: #1a1a2e; /* Charcoal chữ chuẩn Digital Maître d’ */
+
+  /* ERROR */
+  --error: #ba1a1a;
+  --on-error: #ffffff;
+  --error-container: #ffdad6;
+  --on-error-container: #93000a;
+
+  /* FIXED (KHÔNG ĐỔI) */
+  --primary-fixed: #ffdbd0;
+  --primary-fixed-dim: #ffb59d;
+  --on-primary-fixed: #390c00;
+  --on-primary-fixed-variant: #832600;
+
+  --secondary-fixed: #e2e0fc;
+  --secondary-fixed-dim: #c6c4df;
+  --on-secondary-fixed: #1a1a2e;
+  --on-secondary-fixed-variant: #45455b;
+
+  --tertiary-fixed: #b5ebff;
+  --tertiary-fixed-dim: #59d5fb;
+  --on-tertiary-fixed: #001f28;
+  --on-tertiary-fixed-variant: #004e60;
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     /* === DARK THEME (Mã màu đảo ngược tiêu chuẩn của Material 3) === */
+    /* PRIMARY */
     --primary: #ffb59d;
     --on-primary: #5c1900;
     --primary-container: #832600;
     --on-primary-container: #ffdbd0;
-    
+
+    /* SECONDARY */
     --secondary: #c6c4df;
     --on-secondary: #2f2e43;
     --secondary-container: #45455b;
     --on-secondary-container: #e2e0fc;
-    
+
+    /* TERTIARY */
+    --tertiary: #59d5fb;
+    --on-tertiary: #003544;
+    --tertiary-container: #004e60;
+    --on-tertiary-container: #b5ebff;
+
+    /* SURFACE */
+    --background: #121212;
     --surface: #121212;
-    --on-surface: #e1e3e4;
     --surface-variant: #49454f;
-    --on-surface-variant: #cac4d0;
-    
+
     --surface-container-lowest: #000000;
     --surface-container-low: #1a1a1a;
     --surface-container: #1d1d1d;
     --surface-container-high: #282828;
     --surface-container-highest: #333333;
 
+    --on-surface: #e1e3e4;
+    --on-surface-variant: #cac4d0;
+
+    /* OUTLINE */
     --outline: #a08c87;
     --outline-variant: #53433f;
-    
-    --background: #121212;
-    --foreground: #e1e3e4;
+
+    /* ERROR */
+    --error: #ffb4ab;
+    --on-error: #690005;
+    --error-container: #93000a;
+    --on-error-container: #ffdad6;
+
+    /* FIXED (GIỮ NGUYÊN - KHÔNG ĐỔI) */
+    --primary-fixed: #ffdbd0;
+    --primary-fixed-dim: #ffb59d;
+    --on-primary-fixed: #390c00;
+    --on-primary-fixed-variant: #832600;
+
+    --secondary-fixed: #e2e0fc;
+    --secondary-fixed-dim: #c6c4df;
+    --on-secondary-fixed: #1a1a2e;
+    --on-secondary-fixed-variant: #45455b;
+
+    --tertiary-fixed: #b5ebff;
+    --tertiary-fixed-dim: #59d5fb;
+    --on-tertiary-fixed: #001f28;
+    --on-tertiary-fixed-variant: #004e60;
   }
 }
 
 @theme inline {
-  /* Ánh xạ biến màu CSS vào biến của Tailwind v4 */
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-
+  /* PRIMARY */
   --color-primary: var(--primary);
   --color-on-primary: var(--on-primary);
   --color-primary-container: var(--primary-container);
-  
+  --color-on-primary-container: var(--on-primary-container);
+
+  /* SECONDARY */
   --color-secondary: var(--secondary);
   --color-on-secondary: var(--on-secondary);
   --color-secondary-container: var(--secondary-container);
-  
+  --color-on-secondary-container: var(--on-secondary-container);
+
+  /* TERTIARY */
+  --color-tertiary: var(--tertiary);
+  --color-on-tertiary: var(--on-tertiary);
+  --color-tertiary-container: var(--tertiary-container);
+  --color-on-tertiary-container: var(--on-tertiary-container);
+
+  /* SURFACE */
+  --color-background: var(--background);
   --color-surface: var(--surface);
-  --color-on-surface: var(--on-surface);
   --color-surface-variant: var(--surface-variant);
-  
+
   --color-surface-lowest: var(--surface-container-lowest);
   --color-surface-low: var(--surface-container-low);
   --color-surface-container: var(--surface-container);
   --color-surface-high: var(--surface-container-high);
   --color-surface-highest: var(--surface-container-highest);
-  
+
+  --color-on-surface: var(--on-surface);
+  --color-on-surface-variant: var(--on-surface-variant);
+
+  /* OUTLINE */
   --color-outline: var(--outline);
   --color-outline-variant: var(--outline-variant);
 
-  /* Typography */
+  /* ERROR */
+  --color-error: var(--error);
+  --color-on-error: var(--on-error);
+  --color-error-container: var(--error-container);
+  --color-on-error-container: var(--on-error-container);
+
+  /* TYPO */
   --font-inter: "Inter", sans-serif;
-  --font-sans: var(--font-inter);
+  --font-sans: var(--font-nunito);
 }
 
 body {
   background-color: var(--background);
-  color: var(--foreground);
   font-family: var(--font-sans);
   line-height: 1.6;
-  transition: background-color 0.3s ease, color 0.3s ease;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
