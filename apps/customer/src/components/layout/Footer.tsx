@@ -124,7 +124,7 @@ export default function Footer() {
               placeholder="Địa chỉ email"
               type="email"
             />
-            <button className="bg-orange-500 text-white px-4 rounded-xl">
+            <button className="bg-primary hover:bg-primary-container cursor-pointer active:scale-90 transition-all duration-300 text-white px-4 rounded-xl">
               <Send size={20} />
             </button>
           </div>
@@ -132,7 +132,7 @@ export default function Footer() {
       </div>
       <div className="max-w-7xl mx-auto mt-12 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-6">
         <p className="text-sm font-normal text-slate-400">
-          © 2024 FoodHub Technologies. All rights reserved.
+          © 2026 FoodHub Technologies. All rights reserved.
         </p>
         <div className="flex gap-8">
           <Link

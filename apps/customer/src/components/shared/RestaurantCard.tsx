@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { Clock, Star } from "lucide-react";
+import Link from "next/link";
 
 interface RestaurantCardProps {
   id: string;
@@ -13,6 +14,7 @@ interface RestaurantCardProps {
   deliveryTime: string;
   deliveryFee: string; // "Free Delivery" | "₫15.000 fee"
   badge?: string;
+  slug: string;
 }
 
 export function RestaurantCard({
@@ -24,9 +26,10 @@ export function RestaurantCard({
   deliveryTime,
   deliveryFee,
   badge,
+  slug,
 }: RestaurantCardProps) {
   return (
-    <div className="group cursor-pointer">
+    <Link href={`/${slug}`} className="group cursor-pointer">
       {/* Image */}
       <div className="relative rounded-[2rem] overflow-hidden mb-5 bg-surface-container-low aspect-[4/5]">
         <Image
@@ -35,6 +38,7 @@ export function RestaurantCard({
           fill
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
           className="object-cover group-hover:scale-110 transition-transform duration-500"
+          loading="eager"
         />
 
         {/* Rating */}
@@ -69,6 +73,6 @@ export function RestaurantCard({
         </div>
         <span className="text-secondary font-medium">{deliveryFee}</span>
       </div>
-    </div>
+    </Link>
   );
 }

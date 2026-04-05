@@ -16,6 +16,7 @@ const restaurants = [
     deliveryTime: "15-20 phút",
     deliveryFee: "Miễn phí giao hàng",
     badge: "Bán chạy",
+    slug: "the-burger-club",
   },
   {
     id: "2",
@@ -27,6 +28,7 @@ const restaurants = [
     rating: 4.9,
     deliveryTime: "25-30 phút",
     deliveryFee: "15.000₫ phí giao",
+    slug: "sushi-kazu",
   },
   {
     id: "3",
@@ -38,6 +40,7 @@ const restaurants = [
     rating: 4.5,
     deliveryTime: "10-15 phút",
     deliveryFee: "Miễn phí giao hàng",
+    slug: "fire-wings",
   },
   {
     id: "4",
@@ -49,6 +52,7 @@ const restaurants = [
     rating: 4.7,
     deliveryTime: "30-40 phút",
     deliveryFee: "20.000₫ phí giao",
+    slug: "pizza-roma",
   },
 ];
 

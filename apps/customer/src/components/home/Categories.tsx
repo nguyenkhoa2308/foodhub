@@ -17,6 +17,9 @@ const categories = [
   { name: "Bánh ngọt", image: "/images/categories/cake.png" },
   { name: "Đồ uống", image: "/images/categories/drink.png" },
   { name: "Hải sản", image: "/images/categories/seafood.png" },
+  { name: "Đồ ăn nhanh", image: "/images/categories/fastfood.png" },
+  { name: "Cơm", image: "/images/categories/rice.png" },
+  { name: "Bún - Phở - Mỳ", image: "/images/categories/noodle.png" },
 ];
 
 export default function Categories() {

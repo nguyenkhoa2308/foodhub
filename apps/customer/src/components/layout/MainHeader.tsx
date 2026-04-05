@@ -12,6 +12,7 @@ import {
   Package,
   Settings,
   LogOut,
+  Search,
 } from "lucide-react";
 
 const navLinks = [
@@ -26,11 +27,11 @@ const dropdownLinks = [
   { href: "/settings", label: "Settings", icon: Settings },
 ] as const;
 
-const UNDERLINE_TRANSITION = {
-  type: "spring",
-  bounce: 0.2,
-  duration: 0.6,
-} as const;
+// const UNDERLINE_TRANSITION = {
+//   type: "spring",
+//   bounce: 0.2,
+//   duration: 0.6,
+// } as const;
 const DROPDOWN_TRANSITION = {
   type: "spring",
   bounce: 0.2,
@@ -50,7 +51,7 @@ const FAKE_USER = {
     "https://lh3.googleusercontent.com/aida-public/AB6AXuACBQNOCjaEO07YJeJZRO9dh9dgeckPdbG3xXNrxV1fWo5jwu6B__JcmpDFFC7hIF5Sh-injNmic2KjFRluKdCNWY_H9j9G73FboS81WxiLbs_xLgNbxVK7D-5gxODEO8dmTxKvXUgmdCQ3NRsk-MaYDP81WzNJjfk63ehy_Qk5Z04Dc2SFs02-XdbNqHmzuflSsewZ1PgXZJ3ZIbwfQb86u1ATRdJwY2IU8DyFFkUMVuX7OvrXA8o7R4ougiRf06vbvoz8UqklSXQ",
 };
 
-export default function Header() {
+export default function MainHeader() {
   const pathname = usePathname();
   const [dropdownOpen, setDropdownOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -88,43 +89,58 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="fixed top-0 w-full z-50 bg-background backdrop-blur-xl shadow-sm font-sans antialiased text-primary">
-      <nav className="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
-        <Link
-          href="/"
-          className="text-2xl font-black tracking-tighter text-primary"
-        >
-          FoodHub
-        </Link>
-
-        <div className="hidden md:flex items-center space-x-8">
-          {navLinks.map((link) => {
-            const active = isActive(link.href);
-            return (
-              <Link
-                key={link.href}
-                href={link.href}
-                aria-current={active ? "page" : undefined}
-                className={`relative font-bold transition-colors duration-200 ${
-                  active
-                    ? "text-primary"
-                    : "text-secondary/60 hover:text-primary"
-                }`}
-              >
-                {link.label}
-                {/* {active && (
-                  <motion.span
-                    layoutId="header-underline"
-                    className="absolute -bottom-1 left-0 h-[2px] w-full rounded-full bg-primary"
-                    transition={UNDERLINE_TRANSITION}
-                  />
-                )} */}
-              </Link>
-            );
-          })}
+    <header className="fixed top-0 w-full z-50 bg-on-primary border-none shadow-sm">
+      <div className="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+        <div className="flex items-center gap-8">
+          <Link
+            href="/"
+            className="text-2xl font-black tracking-tighter text-primary"
+          >
+            FoodHub
+          </Link>
+          <nav className="hidden md:flex items-center gap-6">
+            <div className="hidden md:flex items-center space-x-8">
+              {navLinks.map((link) => {
+                const active = isActive(link.href);
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    aria-current={active ? "page" : undefined}
+                    className={`relative font-bold transition-colors duration-200 ${
+                      active
+                        ? "text-primary"
+                        : "text-secondary/60 hover:text-primary"
+                    }`}
+                  >
+                    {link.label}
+                    {/* {active && (
+                      <motion.span
+                        layout="position"
+                        layoutId="header-underline"
+                        className="absolute -bottom-1 left-0 h-[2px] w-full rounded-full bg-primary"
+                        transition={UNDERLINE_TRANSITION}
+                      />
+                    )} */}
+                  </Link>
+                );
+              })}
+            </div>
+          </nav>
         </div>
 
-        <div className="flex items-center space-x-5 select-none">
+        <div className="flex items-center gap-4 select-none">
+          <div className="relative hidden lg:block ">
+            <Search
+              className="absolute left-3 top-1/2 -translate-y-1/2 text-secondary/60"
+              size={20}
+            />
+            <input
+              className="pl-10 pr-4 py-2 bg-surface-container border-none rounded-full w-64 focus:ring-2 focus:ring-primary/20 text-sm outline-none text-secondary/80 focus:text-secondary transition-colors duration-200"
+              placeholder="Tìm kiếm nhà hàng, món ăn..."
+              type="text"
+            />
+          </div>
           <button
             aria-label="Chọn địa điểm"
             className="active:scale-95 transition-transform text-secondary/60 hover:text-primary cursor-pointer"
@@ -141,7 +157,6 @@ export default function Header() {
           {isLoggedIn ? (
             <div ref={dropdownRef} className="relative flex items-center">
               <button
-                type="button"
                 aria-label="Tài khoản"
                 aria-expanded={dropdownOpen}
                 onClick={() => setDropdownOpen((prev) => !prev)}
@@ -212,7 +227,7 @@ export default function Header() {
             </div>
           )}
         </div>
-      </nav>
+      </div>
     </header>
   );
 }

@@ -51,6 +51,7 @@ export default function MapSection() {
                 alt="Bản đồ thành phố với các ghim vị trí nhà hàng"
                 fill
                 className="object-cover"
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
 
               <div className="absolute top-1/3 left-1/4 animate-bounce">
